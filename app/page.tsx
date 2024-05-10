@@ -7,7 +7,7 @@ const roboto = Roboto({ subsets: ['latin'], weight: '400' });
 
 export default function Home() {
     return (
-        <main>
+        <main className='main'>
             <Navbar />
             <div className='mt-40 px-60'>
                 <div className='text-center'>
