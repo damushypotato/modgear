@@ -1,4 +1,4 @@
-import { fetchProductByName } from '@/app/lib/data';
+import { fetchProductBySlug } from '@/app/lib/data';
 import Navbar from '@/app/ui/navbar';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -6,12 +6,12 @@ import { notFound } from 'next/navigation';
 
 type Props = {
     params: {
-        name: string;
+        slug: string;
     };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const product = await fetchProductByName(decodeURI(params.name));
+    const product = await fetchProductBySlug(params.slug);
 
     if (!product) {
         return {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Product({ params }: Props) {
-    const product = await fetchProductByName(decodeURI(params.name));
+    const product = await fetchProductBySlug(params.slug);
 
     if (!product) {
         return notFound();

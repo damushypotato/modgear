@@ -20,4 +20,5 @@ export type Product = {
     description: string;
     category: Product_Category;
     image: string;
+    slug: string;
 };

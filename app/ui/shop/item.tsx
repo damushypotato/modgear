@@ -12,7 +12,7 @@ const gradientStyle: React.CSSProperties = {
 export default function Item({ product }: { product: Product }) {
     return (
         <Link
-            href={`/product/${encodeURI(product.name)}`}
+            href={`/product/${product.slug}`}
             className={clsx(
                 'm-6 p-6 bg-gray-200 border-gray-600 border-2 text-black rounded-lg flex flex-col items-center overflow-hidden justify-center',
                 styles.item

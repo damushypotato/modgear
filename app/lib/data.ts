@@ -6,6 +6,6 @@ export async function fetchProducts() {
     return catalog;
 }
 
-export async function fetchProductByName(name: string) {
-    return catalog.find(p => p.name == name);
+export async function fetchProductBySlug(slug: string) {
+    return catalog.find(p => p.slug == slug);
 }
