@@ -10,7 +10,7 @@ export default function Shop() {
     return (
         <main>
             <Navbar />
-            <div className='mt-40 px-60'>
+            <div className='mt-24 px-60'>
                 <Store />
             </div>
         </main>

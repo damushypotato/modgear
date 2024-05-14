@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <main className='main'>
             <Navbar />
-            <div className='mt-40 px-60'>
+            <div className='mt-24 px-60'>
                 <div className='text-center'>
                     <h1 className='text-5xl font-bold pb-6'>Welcome to TopGear!</h1>
                     <div className='flex justify-center p-2'>

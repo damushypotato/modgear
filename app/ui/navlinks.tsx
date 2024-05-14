@@ -32,7 +32,7 @@ export default function NavLinks() {
                     key={link.name}
                     href={link.href}
                     className={clsx(
-                        'px-4 text-2xl transition-color hover:text-blue-500',
+                        'px-4 text-xl transition-color hover:text-blue-500',
                         kode.className,
                         pathname === link.href ? 'text-blue-500' : 'text-white'
                     )}

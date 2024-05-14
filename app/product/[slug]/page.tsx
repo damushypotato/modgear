@@ -36,7 +36,7 @@ export default async function Product({ params }: Props) {
     return (
         <main>
             <Navbar />
-            <div className='flex justify-center items-center mt-40 px-60'>
+            <div className='flex justify-center items-center mt-24 px-60'>
                 <div className='flex flex-col items-center max-w-96 max-h-96'>
                     <Image
                         src={`/${product.image}`}
