@@ -15,7 +15,7 @@ const catalog = [
         description:
             'High-flow exhaust manifold for improved exhaust gas flow and engine performance.',
         category: 'Exhaust',
-        image: 'assets/img/exhaust-2.png',
+        image: 'assets/img/exhaust-2.jpeg',
         slug: 'performance-exhaust-manifold',
     },
     {
@@ -44,7 +44,7 @@ const catalog = [
         description:
             'Upgraded brake kit with larger rotors and calipers for improved braking performance.',
         category: 'Brakes',
-        image: 'assets/img/brakes-5.png',
+        image: 'assets/img/brakes-5.jpeg',
         slug: 'big-brake-kit',
     },
     {
@@ -179,7 +179,7 @@ const catalog = [
         price: 500,
         description: 'Custom ECU tune for increased horsepower and torque.',
         category: 'Engine',
-        image: 'assets/img/ecu-20.png',
+        image: 'assets/img/ecu-20.jpeg',
         slug: 'performance-ecu-tune',
     },
     {
@@ -260,7 +260,7 @@ const catalog = [
         price: 1000,
         description: 'Limited slip differential for improved traction and cornering performance.',
         category: 'Drivetrain',
-        image: 'assets/img/diff-29.png',
+        image: 'assets/img/diff-29.jpeg',
         slug: 'limited-slip-differential',
     },
     {
