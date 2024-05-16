@@ -14,7 +14,7 @@ export default function Home() {
                     <h1 className='text-5xl font-bold pb-6'>Welcome to TopGear!</h1>
                     <div className='flex justify-center p-2'>
                         <Image
-                            src='/TOPGEAR.png'
+                            src='/TOPGEAR.jpeg'
                             alt='TopGear'
                             className='rounded-xl'
                             width={600}

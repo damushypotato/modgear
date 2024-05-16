@@ -14,7 +14,7 @@ const links = [
     },
     {
         name: 'Tuner',
-        href: '/tuner',
+        href: '/enginetuner',
     },
     {
         name: 'Paint',

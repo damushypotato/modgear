@@ -8,27 +8,28 @@ Title: Ferrari f40
 
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import { Color, DoubleSide } from 'three';
-import { BodyMaterial, CarbonMaterial, InteriorMaterial } from './materials';
+import { GLTFResult } from '@/app/lib/definitions';
 
-export default function Model({ color }: { color: Color }) {
-    const { nodes, materials }: any = useGLTF('/ferrari_f40.glb');
+export default function Model(props: JSX.IntrinsicElements['group']) {
+    const { nodes, materials }: GLTFResult = useGLTF('/ferrari_f40.glb') as any;
 
-    if (!color) {
-        color = new Color('black');
-    }
+    materials.material.color.set('white');
+
+    materials.super_headlight.emissive.set('white');
+    materials.super_headlight.emissiveIntensity = 25;
+
+    materials.super_brakelight.emissive.set('red');
+    materials.super_brakelight.emissiveIntensity = 5;
 
     return (
-        <group dispose={null}>
+        <group dispose={null} {...props}>
             <group rotation={[-Math.PI / 2, 0, 0]}>
                 <mesh
                     castShadow
                     receiveShadow
                     geometry={nodes.Object_2.geometry}
                     material={materials.F40_Carbon}
-                >
-                    {/* <CarbonMaterial /> */}
-                </mesh>
+                />
                 <mesh
                     castShadow
                     receiveShadow
@@ -71,18 +72,14 @@ export default function Model({ color }: { color: Color }) {
                     receiveShadow
                     geometry={nodes.Object_9.geometry}
                     material={materials.material}
-                >
-                    {/* <BodyMaterial /> */}
-                </mesh>
+                ></mesh>
                 {/* body */}
                 <mesh
                     castShadow
                     receiveShadow
                     geometry={nodes.Object_10.geometry}
                     material={materials.material}
-                >
-                    {/* <BodyMaterial /> */}
-                </mesh>
+                ></mesh>
                 <mesh
                     castShadow
                     receiveShadow
@@ -112,9 +109,7 @@ export default function Model({ color }: { color: Color }) {
                     receiveShadow
                     geometry={nodes.Object_15.geometry}
                     material={materials.F40_Cockpit}
-                >
-                    {/* <InteriorMaterial /> */}
-                </mesh>
+                ></mesh>
                 <mesh
                     castShadow
                     receiveShadow
