@@ -1,18 +1,12 @@
 'use client';
 
-import {
-    AccumulativeShadows,
-    ContactShadows,
-    Environment,
-    Lightformer,
-    OrbitControls,
-    RandomizedLight,
-} from '@react-three/drei';
+import { ContactShadows, Environment, Lightformer, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import Model from './model';
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Html, useProgress } from '@react-three/drei';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
+import Logo from './logo';
 
 export function Loader() {
     const { progress } = useProgress();
@@ -24,6 +18,18 @@ export function Loader() {
 }
 
 export default function PaintApp() {
+    const [rotate, setRotate] = useState(true);
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === ' ') setRotate(prev => !prev);
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [setRotate]);
+
     return (
         <Canvas camera={{ position: [0, 0, 12], fov: 25 }}>
             <color attach='background' args={['rgb(1, 10, 24)']} />
@@ -56,6 +62,12 @@ export default function PaintApp() {
                     <ringGeometry args={[0.9, 1, 3, 1]} />
                     <meshStandardMaterial color='white' roughness={0.75} />
                 </mesh>
+                <Logo
+                    scale={5}
+                    position={[0, -1.161, 4]}
+                    rotation={[-Math.PI / 2, 0, 2.05 * Math.PI]}
+                />
+
                 <Environment resolution={512}>
                     {/* Ceiling */}
                     <Lightformer
@@ -131,8 +143,7 @@ export default function PaintApp() {
                         intensity={1}
                     />
                 </EffectComposer>
-
-                <OrbitControls maxPolarAngle={Math.PI / 2} enablePan={false} />
+                <OrbitControls maxPolarAngle={Math.PI / 2} enablePan={false} autoRotate={rotate} />
             </Suspense>
         </Canvas>
     );
