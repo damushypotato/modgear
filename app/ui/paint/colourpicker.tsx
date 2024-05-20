@@ -1,11 +1,9 @@
 import { ColourSelection } from '@/app/lib/definitions';
 import { useState } from 'react';
 
-export default function ColourPicker({
-    handleColourChange,
-}: {
-    handleColourChange: (color: ColourSelection) => void;
-}) {
+export default function ColourPicker(
+    props: JSX.IntrinsicElements['div'] & { handleColourChange: (colour: ColourSelection) => void }
+) {
     const [colour, setColour] = useState({ colour: 'white' } as ColourSelection);
 
     function handleInput(e: any) {
@@ -16,7 +14,7 @@ export default function ColourPicker({
         const x = { ...colour, [e.target.name]: v };
         setColour(x);
 
-        handleColourChange(x);
+        props.handleColourChange(x);
     }
 
     return (

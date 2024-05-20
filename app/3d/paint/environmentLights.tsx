@@ -1,6 +1,6 @@
 import { Environment, Lightformer } from '@react-three/drei';
 
-export default function Lights(props: JSX.IntrinsicElements['group']) {
+export default function EnvironmentLights(props: JSX.IntrinsicElements['group']) {
     return (
         <Environment resolution={512} {...props}>
             {/* Ceiling */}
