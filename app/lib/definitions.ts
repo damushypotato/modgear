@@ -116,3 +116,9 @@ export type GLTFResult = {
     nodes: Nodes;
     materials: Materials;
 };
+
+export type ColourSelection = {
+    colour: string;
+    metalness?: number;
+    roughness?: number;
+};
