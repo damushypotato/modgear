@@ -10,7 +10,7 @@ import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTFResult } from '@/app/lib/definitions';
 
-export default function Model(props: JSX.IntrinsicElements['group']) {
+export default function F40(props: JSX.IntrinsicElements['group']) {
     const { nodes, materials }: GLTFResult = useGLTF('/ferrari_f40.glb') as any;
 
     materials.material.color.set('white');
