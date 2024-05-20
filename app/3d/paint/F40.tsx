@@ -8,12 +8,19 @@ Title: Ferrari f40
 
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import { GLTFResult } from '@/app/lib/definitions';
+import { ColourSelection, GLTFResult } from '@/app/lib/definitions';
+import { Color } from 'three';
 
-export default function F40(props: JSX.IntrinsicElements['group']) {
+export default function F40(
+    props: JSX.IntrinsicElements['group'] & {
+        colour: ColourSelection;
+    }
+) {
     const { nodes, materials }: GLTFResult = useGLTF('/ferrari_f40.glb') as any;
 
-    materials.material.color.set('white');
+    materials.material.color = new Color(props.colour.colour);
+    if (props.colour.roughness) materials.material.roughness = props.colour.roughness;
+    if (props.colour.metalness) materials.material.metalness = props.colour.metalness;
 
     materials.super_headlight.emissive.set('white');
     materials.super_headlight.emissiveIntensity = 25;
