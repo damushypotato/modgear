@@ -1,8 +1,8 @@
 'use client';
 
-import { ContactShadows, OrbitControls, Html } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
-import { useEffect, useState } from 'react';
+import { OrbitControls, Html, Stats } from '@react-three/drei';
+import { Canvas, useThree } from '@react-three/fiber';
+import { useEffect, useRef, useState } from 'react';
 import F40 from './F40';
 import Logo from './logo';
 import EnvironmentLights from './environmentLights';
@@ -10,8 +10,11 @@ import Postprocessing from './postprocessing';
 import { ColourSelection } from '@/app/lib/definitions';
 import EnvironmentGeneral from './environmentGeneral';
 import ColourPicker from '../../ui/paint/colourpicker';
+import { EffectComposer } from 'three/examples/jsm/Addons.js';
 
-export default function PaintApp() {
+function Scene() {
+    const { gl } = useThree();
+    const composer = useRef<any>();
     const [autorotate, setAutorotate] = useState(true);
     const [colour, setColour] = useState({ colour: 'white' } as ColourSelection);
     const [rotate, setRotate] = useState(true);
@@ -34,8 +37,16 @@ export default function PaintApp() {
         setRotate(true);
     }
 
+    async function screenshot() {
+        const dataUrl = gl.domElement.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = 'screenshot.png';
+        a.click();
+    }
+
     return (
-        <Canvas camera={{ position: [0, 0, 12], fov: 25 }}>
+        <>
             <color attach='background' args={['rgb(1, 10, 24)']} />
             <F40
                 position={[0, -1.16, 0]}
@@ -47,10 +58,11 @@ export default function PaintApp() {
                 scale={5}
                 position={[0, -1.161, 4]}
                 rotation={[-Math.PI / 2, 0, 2.05 * Math.PI]}
+                colour={colour.colour}
             />
             <EnvironmentGeneral />
             <EnvironmentLights />
-            <Postprocessing />
+            <Postprocessing ref={composer} />
             <OrbitControls
                 maxPolarAngle={Math.PI / 2}
                 enablePan={false}
@@ -62,8 +74,18 @@ export default function PaintApp() {
                     onMouseEnter={onHoverEnter}
                     onMouseLeave={onHoverLeave}
                     handleColourChange={setColour}
+                    screenshot={screenshot}
                 />
             </Html>
+            {/* <Stats /> */}
+        </>
+    );
+}
+
+export default function PaintApp() {
+    return (
+        <Canvas camera={{ position: [0, 0, 12], fov: 25 }} gl={{ preserveDrawingBuffer: true }}>
+            <Scene />
         </Canvas>
     );
 }
