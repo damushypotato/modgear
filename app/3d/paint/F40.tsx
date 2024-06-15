@@ -11,16 +11,15 @@ import { useGLTF } from '@react-three/drei';
 import { ColourSelection, GLTFResult } from '@/app/lib/definitions';
 import { Color } from 'three';
 
-export default function F40(
-    props: JSX.IntrinsicElements['group'] & {
-        colour: ColourSelection;
-    }
-) {
+export default function F40({
+    colour,
+    ...props
+}: { colour: ColourSelection } & JSX.IntrinsicElements['group']) {
     const { nodes, materials }: GLTFResult = useGLTF('/ferrari_f40.glb') as any;
 
-    materials.material.color = new Color(props.colour.colour);
-    if (props.colour.roughness) materials.material.roughness = props.colour.roughness;
-    if (props.colour.metalness) materials.material.metalness = props.colour.metalness;
+    materials.material.color = new Color(colour.colour);
+    if (colour.roughness) materials.material.roughness = colour.roughness;
+    if (colour.metalness) materials.material.metalness = colour.metalness;
 
     materials.super_headlight.emissive.set('white');
     materials.super_headlight.emissiveIntensity = 25;
