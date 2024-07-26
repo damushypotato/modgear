@@ -1,8 +1,16 @@
-import { fetchProducts } from '@/app/lib/data';
+'use client';
+
+import { useProducts } from '@/app/lib/data';
 import Item from './item';
 
-export default async function Store() {
-    const products = (await fetchProducts()).map(p => <Item key={p.id} product={p} />);
+export default function Store() {
+    const { products, isLoading } = useProducts();
 
-    return <div className='flex justify-center flex-wrap'>{products}</div>;
+    return (
+        <div className='flex justify-center flex-wrap'>
+            {isLoading
+                ? 'Loading...'
+                : products.map(product => <Item key={product.id} product={product} />)}
+        </div>
+    );
 }

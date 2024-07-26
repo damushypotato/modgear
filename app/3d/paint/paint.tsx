@@ -1,6 +1,6 @@
 'use client';
 
-import { OrbitControls, Html, Stats } from '@react-three/drei';
+import { OrbitControls, Html } from '@react-three/drei';
 import { Canvas, useThree } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import F40 from './F40';
@@ -10,7 +10,6 @@ import Postprocessing from './postprocessing';
 import { ColourSelection } from '@/app/lib/definitions';
 import EnvironmentGeneral from './environmentGeneral';
 import ColourPicker from '../../ui/paint/colourpicker';
-import { EffectComposer } from 'three/examples/jsm/Addons.js';
 
 function Scene() {
     const { gl } = useThree();
@@ -77,7 +76,6 @@ function Scene() {
                     screenshot={screenshot}
                 />
             </Html>
-            {/* <Stats /> */}
         </>
     );
 }

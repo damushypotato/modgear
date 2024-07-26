@@ -1,8 +1,6 @@
-import { fetchProductBySlug } from '@/app/lib/data';
-import Navbar from '@/app/ui/navbar';
+import { useProductBySlug } from '@/app/lib/data';
+import Product from '@/app/ui/shop/product';
 import { Metadata } from 'next';
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
 
 type Props = {
     params: {
@@ -11,7 +9,14 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const product = await fetchProductBySlug(params.slug);
+    const { product, isLoading } = useProductBySlug(params.slug);
+
+    if (isLoading) {
+        return {
+            title: 'Loading...',
+            description: 'Loading...',
+        };
+    }
 
     if (!product) {
         return {
@@ -26,30 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default async function Product({ params }: Props) {
-    const product = await fetchProductBySlug(params.slug);
-
-    if (!product) {
-        return notFound();
-    }
-
-    return (
-        <main>
-            <Navbar />
-            <div className='flex justify-center items-center mt-24 px-60'>
-                <div className='flex flex-col items-center max-w-96 max-h-96'>
-                    <Image
-                        src={`/${product.image}`}
-                        width={300}
-                        height={300}
-                        alt=''
-                        className='rounded-lg size-96 object-scale-down border-4'
-                    />
-                    <h1 className='text-4xl'>{product.name}</h1>
-                    <p className='text-2xl'>${product.price.toFixed(2)}</p>
-                    <p className='text-xl'>{product.description}</p>
-                </div>
-            </div>
-        </main>
-    );
+export default function ProductPage({ params }: Props) {
+    return <Product slug={params.slug} />;
 }

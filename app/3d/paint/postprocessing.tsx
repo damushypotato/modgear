@@ -1,5 +1,5 @@
 import { extend, useThree } from '@react-three/fiber';
-import { Bloom, EffectComposer, FXAA } from '@react-three/postprocessing';
+import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { forwardRef } from 'react';
 import { FXAAShader, RenderPass, ShaderPass } from 'three/examples/jsm/Addons.js';
 
