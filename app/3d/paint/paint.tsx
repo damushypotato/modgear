@@ -7,7 +7,7 @@ import F40 from './F40';
 import Logo from './logo';
 import EnvironmentLights from './environmentLights';
 import Postprocessing from './postprocessing';
-import { ColourSelection } from '@/app/lib/definitions';
+import { ColourSelection } from '@/app/types/definitions';
 import EnvironmentGeneral from './environmentGeneral';
 import ColourPicker from '../../ui/paint/colourpicker';
 

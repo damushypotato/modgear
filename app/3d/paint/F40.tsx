@@ -8,7 +8,7 @@ Title: Ferrari f40
 
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import { ColourSelection, GLTFResult } from '@/app/lib/definitions';
+import { ColourSelection, GLTFResult } from '@/app/types/definitions';
 import { Color } from 'three';
 
 export default function F40({
