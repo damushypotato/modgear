@@ -16,7 +16,7 @@ export const Product_Categories = [
 export type Product_Category = (typeof Product_Categories)[number];
 
 export type Product = {
-    id: string;
+    id: number;
     name: string;
     price: number;
     description: string;
@@ -24,6 +24,15 @@ export type Product = {
     image: string;
     slug: string;
 };
+
+export type CartItem = {
+    product: Product;
+    quantity: number;
+};
+
+export interface CartDisplayItem extends CartItem {
+    total: number;
+}
 
 type NodesKeys =
     | 'Object_2'

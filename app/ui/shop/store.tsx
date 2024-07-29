@@ -1,6 +1,6 @@
 'use client';
 
-import { useProducts } from '@/app/lib/data';
+import { useProducts } from '@/app/data/useProducts';
 import Item from './item';
 
 export default function Store() {

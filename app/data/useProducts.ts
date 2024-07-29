@@ -1,7 +1,5 @@
-import { Product } from './definitions';
+import { Product } from '../types/definitions';
 import useSWR from 'swr';
-
-// const { catalog } = require('@/app/lib/placeholder-data') as { catalog: Product[] };
 
 const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then(res => res.json());
 

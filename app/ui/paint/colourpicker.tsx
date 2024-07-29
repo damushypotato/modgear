@@ -1,4 +1,4 @@
-import { ColourSelection } from '@/app/lib/definitions';
+import { ColourSelection } from '@/app/types/definitions';
 import { useState } from 'react';
 
 export default function ColourPicker({
