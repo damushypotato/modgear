@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { Teko } from 'next/font/google';
 import './globals.css';
+import '@mantine/core/styles.css';
+
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 
 const teko = Teko({ subsets: ['latin'], weight: '400' });
 
@@ -16,7 +19,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body className={teko.className}>{children}</body>
+            <head>
+                <ColorSchemeScript />
+            </head>
+            <body className={teko.className}>
+                <MantineProvider>{children}</MantineProvider>
+            </body>
         </html>
     );
 }

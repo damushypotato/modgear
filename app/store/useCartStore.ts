@@ -1,23 +1,27 @@
 import { create } from 'zustand';
-import { CartItem, Product } from '../types/definitions';
+import { CartItem, Order, Product } from '../types/definitions';
 import { persist } from 'zustand/middleware';
 
 interface State {
     cart: CartItem[];
     totalItems: number;
     totalPrice: number;
+    orders: Order[];
 }
 
 interface Actions {
     addToCart: (product: Product) => void;
     removeFromCart: (product: Product) => void;
     setQuantity: (product: Product, quantity: number) => void;
+    addOrder: (order: Order) => void;
+    removeOrder: (order: Order) => void;
 }
 
 const Initial_State: State = {
     cart: [],
     totalItems: 0,
     totalPrice: 0,
+    orders: [],
 };
 
 export const useCartStore = create(
@@ -26,6 +30,7 @@ export const useCartStore = create(
             cart: Initial_State.cart,
             totalItems: Initial_State.totalItems,
             totalPrice: Initial_State.totalPrice,
+            orders: Initial_State.orders,
 
             addToCart: product => {
                 const cart = get().cart;
@@ -80,6 +85,30 @@ export const useCartStore = create(
                     cart: updatedCart,
                     totalItems: state.totalItems + quantity - cartItem.quantity,
                     totalPrice: state.totalPrice + (quantity - cartItem.quantity) * product.price,
+                }));
+            },
+
+            addOrder: order => {
+                const orders = get().orders;
+
+                const o = orders.find(o => o.id === order.id);
+
+                if (o) return;
+
+                set(state => ({
+                    orders: [...state.orders, order],
+                }));
+            },
+
+            removeOrder: order => {
+                const orders = get().orders;
+
+                const o = orders.find(o => o.id === order.id);
+
+                if (!o) return;
+
+                set(state => ({
+                    orders: state.orders.filter(o => o.id !== order.id),
                 }));
             },
         }),

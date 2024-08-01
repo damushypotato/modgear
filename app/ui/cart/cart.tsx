@@ -40,6 +40,17 @@ export default function Cart() {
         );
     }
 
+    const downloadQuote = () => {
+        const quote = items.map(item => `${item.product.name} x${item.quantity} $${item.total}\n`);
+        quote.push(`\nTotal $${total.toFixed(2)}`);
+        const blob = new Blob(quote, { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'quote.txt';
+        a.click();
+    };
+
     return (
         <div className={clsx(styles['cart'], inter.className, 'm-auto w-full')}>
             <div className='flex items-center m-auto justify-center'>
@@ -52,7 +63,10 @@ export default function Cart() {
             <div className={clsx(inter.className, 'flex justify-between mb-4')}>
                 <ReturnButton href='/shop'>Continue Shopping</ReturnButton>
 
-                <button className='flex items-center outline outline-2 p-2 rounded-sm'>
+                <button
+                    className='flex items-center outline outline-2 p-2 rounded-sm'
+                    onClick={downloadQuote}
+                >
                     <DocumentCurrencyDollarIcon className='w-6 h-6' />
                     <p className='text-l font-semibold'>Download Quote</p>
                 </button>

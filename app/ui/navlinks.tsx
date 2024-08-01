@@ -25,10 +25,10 @@ const links: Navlink[] = [
         name: 'Shop',
         href: '/shop',
     },
-    {
-        name: 'Tuner',
-        href: '/enginetuner',
-    },
+    // {
+    //     name: 'Tuner',
+    //     href: '/enginetuner',
+    // },
     {
         name: 'Paint',
         href: '/paint',

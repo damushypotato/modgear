@@ -34,6 +34,24 @@ export interface CartDisplayItem extends CartItem {
     total: number;
 }
 
+export interface OrderDetails {
+    fullName: string;
+    email: string;
+    phone: string;
+    address: string;
+    postcode: string;
+}
+
+export type formReturn = OrderDetails & { items: CartDisplayItem[] };
+
+export interface Order {
+    id: string;
+    date: string;
+    details: OrderDetails;
+    items: CartItem[];
+    status: 'pending' | 'shipped' | 'delivered';
+}
+
 type NodesKeys =
     | 'Object_2'
     | 'Object_3'
