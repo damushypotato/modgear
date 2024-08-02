@@ -3,7 +3,7 @@ import { Environment, Lightformer } from '@react-three/drei';
 export default function EnvironmentLights(props: JSX.IntrinsicElements['group']) {
     return (
         <Environment resolution={512} {...props}>
-            {/* Ceiling */}
+            {/* Ceiling light to add effects to the scene*/}
             <Lightformer
                 intensity={2}
                 rotation-x={Math.PI / 2}
@@ -46,7 +46,7 @@ export default function EnvironmentLights(props: JSX.IntrinsicElements['group'])
                 position={[0, 4, 9]}
                 scale={[10, 1, 1]}
             />
-            {/* Sides */}
+            {/* Side lighting */}
             <Lightformer
                 intensity={2}
                 rotation-y={Math.PI / 2}
@@ -59,7 +59,7 @@ export default function EnvironmentLights(props: JSX.IntrinsicElements['group'])
                 position={[50, 2, 0]}
                 scale={[100, 2, 1]}
             />
-            {/* Key */}
+            {/* Key lights, red colour */}
             <Lightformer
                 form='ring'
                 color='red'

@@ -6,6 +6,7 @@ export const metadata = {
     description: 'Shop for the best car mods at TopGear!',
 };
 
+// export the shop page to display the store
 export default function Shop() {
     return (
         <main>

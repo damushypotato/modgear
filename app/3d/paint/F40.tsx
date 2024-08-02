@@ -15,19 +15,24 @@ export default function F40({
     colour,
     ...props
 }: { colour: ColourSelection } & JSX.IntrinsicElements['group']) {
+    // load the car model
     const { nodes, materials }: GLTFResult = useGLTF('/ferrari_f40.glb') as any;
 
+    // set the colour of the car
     materials.material.color = new Color(colour.colour);
     if (colour.roughness) materials.material.roughness = colour.roughness;
     if (colour.metalness) materials.material.metalness = colour.metalness;
 
+    // turn on the headlights
     materials.super_headlight.emissive.set('white');
     materials.super_headlight.emissiveIntensity = 25;
 
+    // turn on the tail lights
     materials.super_brakelight.emissive.set('red');
     materials.super_brakelight.emissiveIntensity = 5;
 
     return (
+        // car model geometry
         <group dispose={null} {...props}>
             <group rotation={[-Math.PI / 2, 0, 0]}>
                 <mesh
@@ -292,4 +297,5 @@ export default function F40({
     );
 }
 
+// preload the car model
 useGLTF.preload('/ferrari_f40.glb');

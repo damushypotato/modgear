@@ -1,5 +1,8 @@
 import { Mesh, MeshPhysicalMaterial } from 'three';
 
+// DATA TYPES DEFINITIONS FOR THE APP
+
+// Definitions for product categories
 export const Product_Categories = [
     'Engine',
     'Exhaust',
@@ -12,9 +15,9 @@ export const Product_Categories = [
     'Cooling',
     'Lighting',
 ] as const;
-
 export type Product_Category = (typeof Product_Categories)[number];
 
+// Definitions for a product
 export type Product = {
     id: number;
     name: string;
@@ -25,6 +28,7 @@ export type Product = {
     slug: string;
 };
 
+// Definitions for a cart item
 export type CartItem = {
     product: Product;
     quantity: number;
@@ -34,6 +38,7 @@ export interface CartDisplayItem extends CartItem {
     total: number;
 }
 
+// Definitions for an order
 export interface OrderDetails {
     fullName: string;
     email: string;
@@ -42,8 +47,7 @@ export interface OrderDetails {
     postcode: string;
 }
 
-export type formReturn = OrderDetails & { items: CartDisplayItem[] };
-
+// Definitions for an order
 export interface Order {
     id: string;
     date: string;
@@ -52,6 +56,10 @@ export interface Order {
     status: 'pending' | 'shipped' | 'delivered';
 }
 
+// Definitions for the state of the cart store
+export type formReturn = OrderDetails & { items: CartDisplayItem[] };
+
+// Definitions for the car model
 type NodesKeys =
     | 'Object_2'
     | 'Object_3'
@@ -96,6 +104,7 @@ type NodesKeys =
     | 'Object_42'
     | 'Object_43';
 
+// Definitions for the car model
 export type MaterialsKeys =
     | 'F40_Carbon'
     | 'F40_GridD'
@@ -131,19 +140,23 @@ export type MaterialsKeys =
     | 'super_headlight'
     | 'super_signal_L';
 
+// Definitions for the car model
 type Nodes = {
     [key in NodesKeys]: Mesh;
 };
 
+// Definitions for the car model materials
 type Materials = {
     [key in MaterialsKeys]: MeshPhysicalMaterial;
 };
 
+// Definitions for the car model from the GLTF file
 export type GLTFResult = {
     nodes: Nodes;
     materials: Materials;
 };
 
+// Definitions for the car colour selection
 export type ColourSelection = {
     colour: string;
     metalness?: number;
