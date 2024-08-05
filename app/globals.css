@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/*  Global styles */
 body {
     background: white;
 }

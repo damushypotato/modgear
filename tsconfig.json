@@ -1,3 +1,4 @@
+// THIS IS A CONFIGURATION FILE FOR TYPESCRIPT
 {
     "compilerOptions": {
         "lib": ["dom", "dom.iterable", "esnext"],

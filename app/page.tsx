@@ -3,15 +3,23 @@ import Navbar from './ui/navbar';
 import { Roboto } from 'next/font/google';
 import clsx from 'clsx';
 
+// load the font for styling
 const roboto = Roboto({ subsets: ['latin'], weight: '400' });
 
+// define the home page component
 export default function Home() {
     return (
         <main className='main'>
+            {/* render the navbar */}
             <Navbar />
+
+            {/* render the home page content */}
             <div className='mt-24 px-60'>
                 <div className='text-center'>
+                    {/* render the title */}
                     <h1 className='text-5xl font-bold pb-6'>Welcome to TopGear!</h1>
+
+                    {/* render the image */}
                     <div className='flex justify-center p-2'>
                         <Image
                             src='/TOPGEAR.jpeg'
@@ -21,6 +29,8 @@ export default function Home() {
                             height={300}
                         />
                     </div>
+
+                    {/* render the description */}
                     <h2 className='text-4xl font-bold p-6'>
                         Want to mod your car? We got you covered.
                     </h2>

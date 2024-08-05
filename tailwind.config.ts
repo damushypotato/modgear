@@ -1,3 +1,5 @@
+// THIS IS A CONFIGURATION FILE FOR TAILWIND CSS
+
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
