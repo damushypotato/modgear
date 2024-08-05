@@ -2,7 +2,7 @@ import { useTexture } from '@react-three/drei';
 
 export default function Logo(props: JSX.IntrinsicElements['group'] & { colour?: string }) {
     // import the logo texture
-    const map = useTexture('/TG.png');
+    const map = useTexture('MG.png');
 
     // remove the colour element from the props object to avoid passing it to the group element
     const newProps = { ...props };

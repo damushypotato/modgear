@@ -25,6 +25,7 @@ export default function RootLayout({
         <html lang='en'>
             <head>
                 <ColorSchemeScript />
+                <link rel='icon' href='/favicon.ico' sizes='any' />
             </head>
             <body className={teko.className}>
                 <MantineProvider>{children}</MantineProvider>

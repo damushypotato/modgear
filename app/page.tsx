@@ -22,7 +22,7 @@ export default function Home() {
                     {/* render the image */}
                     <div className='flex justify-center p-2'>
                         <Image
-                            src='/MODGEAR.jpeg'
+                            src='/MODGEAR.png'
                             alt='ModGear'
                             className='rounded-xl'
                             width={600}
