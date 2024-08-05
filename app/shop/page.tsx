@@ -2,8 +2,8 @@ import Navbar from '../ui/navbar';
 import Store from '../ui/shop/store';
 
 export const metadata = {
-    title: 'TopGear Mod Shop',
-    description: 'Shop for the best car mods at TopGear!',
+    title: 'ModGear Mod Shop',
+    description: 'Shop for the best car mods at ModGear!',
 };
 
 // export the shop page to display the store

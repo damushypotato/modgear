@@ -11,7 +11,7 @@ const teko = Teko({ subsets: ['latin'], weight: '400' });
 
 // define the metadata for the layout
 export const metadata: Metadata = {
-    title: 'TopGear',
+    title: 'ModGear',
     description: 'Everything car mods!',
 };
 

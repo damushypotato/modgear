@@ -17,13 +17,13 @@ export default function Home() {
             <div className='mt-24 px-60'>
                 <div className='text-center'>
                     {/* render the title */}
-                    <h1 className='text-5xl font-bold pb-6'>Welcome to TopGear!</h1>
+                    <h1 className='text-5xl font-bold pb-6'>Welcome to ModGear!</h1>
 
                     {/* render the image */}
                     <div className='flex justify-center p-2'>
                         <Image
-                            src='/TOPGEAR.jpeg'
-                            alt='TopGear'
+                            src='/MODGEAR.jpeg'
+                            alt='ModGear'
                             className='rounded-xl'
                             width={600}
                             height={300}
@@ -36,7 +36,7 @@ export default function Home() {
                     </h2>
                     <div className={clsx(roboto.className, 'text-xl w-5/6 mx-auto')}>
                         <p className='py-2'>
-                            TopGear is your one-stop shop for all your car modding needs. We have a
+                            ModGear is your one-stop shop for all your car modding needs. We have a
                             wide selection of parts, tuners, and paint options to make your car
                             stand out from the rest.
                         </p>

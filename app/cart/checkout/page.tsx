@@ -3,7 +3,7 @@ import Navbar from '@/app/ui/navbar';
 import Checkout from '@/app/ui/cart/checkout/checkout';
 
 export const metadata: Metadata = {
-    title: 'Checkout - TopGear',
+    title: 'Checkout - ModGear',
     description: 'Checkout your shopping cart',
 };
 

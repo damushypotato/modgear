@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     // return the product metadata
     return {
-        title: `${metadata.name} - TopGear`,
+        title: `${metadata.name} - ModGear`,
         description: metadata.description,
     };
 }

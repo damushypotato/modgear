@@ -10,7 +10,7 @@ export default function Navbar() {
             {/* branding */}
             <Link className='branding flex items-center py-1' href='/'>
                 <Image src='/logo.png' alt='logo' width={48} height={48} />
-                <h1 className='title font-semibold text-3xl text-white'>TopGear</h1>
+                <h1 className='title font-semibold text-3xl text-white'>ModGear</h1>
             </Link>
 
             {/* navigation links */}
