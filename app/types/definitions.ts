@@ -17,6 +17,12 @@ export const Product_Categories = [
 ] as const;
 export type Product_Category = (typeof Product_Categories)[number];
 
+export const Product_Categories_Search = ['All', ...Product_Categories] as const;
+export type Product_Category_Search = (typeof Product_Categories_Search)[number];
+
+export const Sort_Options_List = ['', 'asc', 'desc'] as const;
+export type Sort_Options = (typeof Sort_Options_List)[number];
+
 // Definitions for a product
 export type Product = {
     id: number;
