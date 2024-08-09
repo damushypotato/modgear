@@ -17,6 +17,8 @@
         "@react-three/postprocessing": "^2.16.2",
         "@types/three": "^0.164.0",
         "clsx": "^2.1.1",
+        "fastest-levenshtein": "^1.0.16",
+        "fuse.js": "^7.0.0",
         "install": "^0.13.0",
         "leva": "^0.9.35",
         "next": "^14.2.5",

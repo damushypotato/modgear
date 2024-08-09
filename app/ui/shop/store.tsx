@@ -5,6 +5,7 @@ import Item from './item';
 import SearchBar from './search';
 import { useEffect, useState } from 'react';
 import { Product_Category, Sort_Options } from '@/app/types/definitions';
+import Fuse from 'fuse.js';
 
 // define the store component
 export default function Store() {
@@ -28,19 +29,36 @@ export default function Store() {
     }
 
     function filterItems(search: string, categories: Product_Category[], sort: Sort_Options) {
-        const filtered = products.filter(product => {
-            const searchMatch = product.name.toLowerCase().includes(search.toLowerCase());
-            const categoryMatch = categories.includes(product.category);
-            return searchMatch && categoryMatch;
-        });
-
+        const filtered = products.filter(product => categories.includes(product.category));
         if (sort === 'asc') {
             filtered.sort((a, b) => a.price - b.price);
         } else if (sort === 'desc') {
             filtered.sort((a, b) => b.price - a.price);
         }
 
-        setItems(filtered.map(product => <Item key={product.id} product={product} />));
+        if (search === '') {
+            setItems(filtered.map(product => <Item key={product.id} product={product} />));
+            return;
+        }
+
+        const fuse = new Fuse(filtered, {
+            keys: ['name', 'description', 'category'],
+            includeScore: true,
+        });
+
+        const results = fuse
+            .search(search)
+            .filter(result => (result.score ? result.score < 0.5 : true));
+
+        if (results.length === 0) {
+            setItems([
+                <h1 key='no-results' className='text-3xl mt-8 text-center'>
+                    No results found
+                </h1>,
+            ]);
+            return;
+        }
+        setItems(results.map(result => <Item key={result.item.id} product={result.item} />));
     }
 
     // render the store component
