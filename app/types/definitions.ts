@@ -168,3 +168,12 @@ export type ColourSelection = {
     metalness?: number;
     roughness?: number;
 };
+
+export interface Paint {
+    name: string;
+    colour: string;
+    metalness: number;
+    roughness: number;
+    price: number;
+    id: string;
+}

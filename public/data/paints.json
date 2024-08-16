@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Green",
+        "colour": "#009246",
+        "metalness": 0.0,
+        "roughness": 0.0,
+        "price": 1000,
+        "id": "1"
+    },
+    {
+        "name": "White",
+        "colour": "#FFFFFF",
+        "metalness": 0.0,
+        "roughness": 0.0,
+        "price": 1000,
+        "id": "2"
+    },
+    {
+        "name": "Red",
+        "colour": "#CE2B37",
+        "metalness": 0.0,
+        "roughness": 0.0,
+        "price": 1000,
+        "id": "3"
+    }
+]
