@@ -1,5 +1,9 @@
 import { ColourSelection } from '@/app/types/definitions';
 import { useState } from 'react';
+import { Inter } from 'next/font/google';
+import clsx from 'clsx';
+
+const inter = Inter({ subsets: ['latin'], weight: '400' });
 
 // define the props for the colour picker component
 type Props = {
@@ -40,9 +44,9 @@ export default function ColourPicker({ handleColourChange, screenshot, ...props 
 
     // render the colour picker
     return (
-        <div {...props} className='select-none'>
+        <div {...props} className={clsx(inter.className, 'select-none bg-white p-8 rounded-xl')}>
             {/* title */}
-            <h1>Colour Picker</h1>
+            <h1>Pick a paint colour</h1>
 
             {/* colour picker sliders */}
             <form onInput={handleInput}>

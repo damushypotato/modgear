@@ -90,7 +90,7 @@ function Scene() {
             />
 
             {/* Add the colour picker to the scene */}
-            <Html>
+            <Html position={[5, 1.5, -2.75]} center>
                 <ColourPicker
                     onMouseEnter={onHoverEnter}
                     onMouseLeave={onHoverLeave}
