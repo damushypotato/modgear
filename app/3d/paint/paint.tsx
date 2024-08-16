@@ -16,7 +16,11 @@ function Scene() {
     const { gl } = useThree();
     const composer = useRef<any>();
     const [autorotate, setAutorotate] = useState(true);
-    const [colour, setColour] = useState({ colour: 'white' } as ColourSelection);
+    const [colour, setColour] = useState({
+        colour: '#ff2300',
+        metalness: 0.1,
+        roughness: 0,
+    } as ColourSelection);
     const [rotate, setRotate] = useState(true);
 
     // add event listener to toggle autorotate on spacebar press
@@ -73,7 +77,7 @@ function Scene() {
             />
 
             {/* Add the environment to the scene */}
-            <EnvironmentGeneral />
+            <EnvironmentGeneral colour={colour} />
 
             {/* Add the lights to the scene */}
             <EnvironmentLights />
@@ -88,23 +92,6 @@ function Scene() {
                 autoRotate={autorotate}
                 enableRotate={rotate}
             />
-
-            {/* Add the colour picker to the scene */}
-            <Html
-                position={[6, 3, -17]}
-                rotation={[0, -Math.PI / 9, 0]}
-                center
-                className='w-96'
-                transform
-                occlude='blending'
-            >
-                <ColourPicker
-                    onMouseEnter={onHoverEnter}
-                    onMouseLeave={onHoverLeave}
-                    handleColourChange={setColour}
-                    screenshot={screenshot}
-                />
-            </Html>
         </>
     );
 }

@@ -9,7 +9,7 @@ import clsx from 'clsx';
 export default function Paint() {
     return (
         <main>
-            <Navbar />
+            <Navbar className='absolute' />
             <div className={clsx(styles['canvas-container'], 'canvas-c')}>
                 {/* render the application */}
                 <PaintApp />
