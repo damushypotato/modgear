@@ -34,10 +34,10 @@ function Scene() {
     // toggling the rotation of the car when the colour picker is hovered,
     // so that the car doesn't rotate when the user is trying to select a colour
     function onHoverEnter() {
-        setRotate(false);
+        setAutorotate(false);
     }
     function onHoverLeave() {
-        setRotate(true);
+        setAutorotate(true);
     }
 
     // function to take a screenshot of the car, and download it as a png
@@ -90,7 +90,14 @@ function Scene() {
             />
 
             {/* Add the colour picker to the scene */}
-            <Html position={[5, 1.5, -2.75]} center>
+            <Html
+                position={[6, 3, -17]}
+                rotation={[0, -Math.PI / 9, 0]}
+                center
+                className='w-96'
+                transform
+                occlude='blending'
+            >
                 <ColourPicker
                     onMouseEnter={onHoverEnter}
                     onMouseLeave={onHoverLeave}
